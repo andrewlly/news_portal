@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.news_portal.mapper.AdsMapper">
+
+    <resultMap id="BaseResultMap" type="com.github.news_portal.domain.Ads">
+            <id property="adsId" column="ads_id" jdbcType="BIGINT"/>
+            <result property="title" column="title" jdbcType="VARCHAR"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="imageUrl" column="image_url" jdbcType="VARCHAR"/>
+            <result property="position" column="position" jdbcType="VARCHAR"/>
+            <result property="sponsorId" column="sponsor_id" jdbcType="VARCHAR"/>
+            <result property="startDate" column="start_date" jdbcType="TIMESTAMP"/>
+            <result property="validUntil" column="valid_until" jdbcType="TIMESTAMP"/>
+            <result property="ageLimit" column="age_limit" jdbcType="INTEGER"/>
+            <result property="regionRestrictions" column="region_restrictions" jdbcType="VARCHAR"/>
+            <result property="deviceRestrictions" column="device_restrictions" jdbcType="VARCHAR"/>
+            <result property="clickCount" column="click_count" jdbcType="INTEGER"/>
+            <result property="exposureCount" column="exposure_count" jdbcType="INTEGER"/>
+            <result property="weight" column="weight" jdbcType="INTEGER"/>
+            <result property="redirectUrl" column="redirect_url" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ads_id,title,content,
+        image_url,position,sponsor_id,
+        start_date,valid_until,age_limit,
+        region_restrictions,device_restrictions,click_count,
+        exposure_count,weight,redirect_url
+    </sql>
+</mapper>

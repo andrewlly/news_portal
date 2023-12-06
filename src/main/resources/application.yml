@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/news_portal?characterEncoding=utf-8&userSSL=false
+    username: root
+    password: 85801754yY!
+    type: com.zaxxer.hikari.HikariDataSource
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.github.news_portal.domain

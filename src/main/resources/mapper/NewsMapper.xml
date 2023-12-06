@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.news_portal.mapper.NewsMapper">
+
+    <resultMap id="BaseResultMap" type="com.github.news_portal.domain.News">
+            <id property="newsId" column="news_id" jdbcType="BIGINT"/>
+            <result property="author" column="author" jdbcType="BIGINT"/>
+            <result property="title" column="title" jdbcType="VARCHAR"/>
+            <result property="postDate" column="post_date" jdbcType="TIMESTAMP"/>
+            <result property="thumbnail" column="thumbnail" jdbcType="VARCHAR"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="views" column="views" jdbcType="INTEGER"/>
+            <result property="favoritesCount" column="favorites_count" jdbcType="INTEGER"/>
+            <result property="shareCount" column="share_count" jdbcType="INTEGER"/>
+            <result property="promoted" column="promoted" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        news_id,author,title,
+        post_date,thumbnail,content,
+        views,favorites_count,share_count,
+        promoted
+    </sql>
+</mapper>
