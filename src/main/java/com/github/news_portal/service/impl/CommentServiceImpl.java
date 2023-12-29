@@ -4,14 +4,11 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.github.news_portal.domain.Comment;
-import com.github.news_portal.domain.News;
 import com.github.news_portal.service.CommentService;
 import com.github.news_portal.mapper.CommentMapper;
-import com.github.news_portal.util.InputParser;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
 * @author liuyu

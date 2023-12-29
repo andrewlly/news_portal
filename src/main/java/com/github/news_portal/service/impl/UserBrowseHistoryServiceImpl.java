@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class UserBrowseHistoryServiceImpl extends ServiceImpl<UserBrowseHistoryMapper, UserBrowseHistory>
-    implements UserBrowseHistoryService{
+    implements UserBrowseHistoryService {
     public void saveOrUpdate(Long userId, Long newsId) {
         UserBrowseHistory userBrowseHistory = new UserBrowseHistory();
         userBrowseHistory.setUserId(userId);
