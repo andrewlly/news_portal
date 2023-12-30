@@ -17,9 +17,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private UserMapper userMapper;
 
     @Override
-    public UserDetails loadUserByUsername(String username) {
+    public UserDetails loadUserByUsername(String email) {
         LambdaQueryWrapper<User> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(User::getUserName, username);
+        lambdaQueryWrapper.eq(User::getEmail, email);
         User user = userMapper.selectOne(lambdaQueryWrapper);
         if(Objects.isNull(user)){
             throw new RuntimeException("invalid account");
