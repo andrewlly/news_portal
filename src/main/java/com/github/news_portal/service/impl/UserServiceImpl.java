@@ -5,6 +5,8 @@ import com.github.news_portal.domain.User;
 import com.github.news_portal.service.UserService;
 import com.github.news_portal.mapper.UserMapper;
 import com.github.news_portal.util.InputParser;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
@@ -15,10 +17,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
     @Resource
     UserMapper userMapper;
+    @Resource
+    PasswordEncoder encoder;
 
     @Override
     public boolean save(User user) {
+        //todo: check input;
         User validUser = InputParser.parseInput(user);
+        validUser.setPassword(encoder.encode(user.getPassword()));
         return super.save(validUser);
     }
 

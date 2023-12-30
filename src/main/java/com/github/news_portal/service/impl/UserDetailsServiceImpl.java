@@ -22,7 +22,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         lambdaQueryWrapper.eq(User::getUserName, username);
         User user = userMapper.selectOne(lambdaQueryWrapper);
         if(Objects.isNull(user)){
-            return null;
+            throw new RuntimeException("invalid account");
         }
         //todo: access check
         return new LoginUser(user);
