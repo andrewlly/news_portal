@@ -1,7 +1,7 @@
 package com.github.news_portal.web;
 
 
-import com.github.news_portal.domain.User;
+import com.github.news_portal.domain.entity.User;
 import javax.annotation.Resource;
 
 import com.github.news_portal.service.UserService;

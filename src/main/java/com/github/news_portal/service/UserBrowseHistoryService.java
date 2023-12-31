@@ -1,6 +1,6 @@
 package com.github.news_portal.service;
 
-import com.github.news_portal.domain.UserBrowseHistory;
+import com.github.news_portal.domain.entity.UserBrowseHistory;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

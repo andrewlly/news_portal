@@ -1,24 +1,25 @@
-package com.github.news_portal.domain;
+package com.github.news_portal.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import lombok.Data;
 
 /**
  * 
- * @TableName sys_user_role
+ * @TableName user_browse_history
  */
-@TableName(value ="sys_user_role")
+@TableName(value ="user_browse_history")
 @Data
-public class SysUserRole implements Serializable {
+public class UserBrowseHistory implements Serializable {
     /**
      * 
      */
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    @TableId(value = "user_browse_history_id", type = IdType.AUTO)
+    private Long userBrowseHistoryId;
 
     /**
      * 
@@ -29,8 +30,14 @@ public class SysUserRole implements Serializable {
     /**
      * 
      */
-    @TableField(value = "role_id")
-    private Long roleId;
+    @TableField(value = "news_id")
+    private Long newsId;
+
+    /**
+     * 
+     */
+    @TableField(value = "last_view_date")
+    private LocalDateTime lastViewDate;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

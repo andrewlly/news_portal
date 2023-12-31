@@ -1,9 +1,9 @@
 package com.github.news_portal.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.github.news_portal.domain.News;
+import com.github.news_portal.domain.entity.News;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.github.news_portal.domain.User;
+import com.github.news_portal.domain.entity.User;
 
 /**
 * @author liuyu

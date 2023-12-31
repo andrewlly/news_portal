@@ -1,6 +1,6 @@
 package com.github.news_portal.service;
 
-import com.github.news_portal.domain.UserTagPreference;
+import com.github.news_portal.domain.entity.UserTagPreference;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

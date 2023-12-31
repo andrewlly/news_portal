@@ -1,25 +1,24 @@
-package com.github.news_portal.domain;
+package com.github.news_portal.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import lombok.Data;
 
 /**
  * 
- * @TableName user_browse_history
+ * @TableName user_tag_preference
  */
-@TableName(value ="user_browse_history")
+@TableName(value ="user_tag_preference")
 @Data
-public class UserBrowseHistory implements Serializable {
+public class UserTagPreference implements Serializable {
     /**
      * 
      */
-    @TableId(value = "user_browse_history_id", type = IdType.AUTO)
-    private Long userBrowseHistoryId;
+    @TableId(value = "user_tag_pref_id", type = IdType.AUTO)
+    private Long userTagPrefId;
 
     /**
      * 
@@ -30,14 +29,8 @@ public class UserBrowseHistory implements Serializable {
     /**
      * 
      */
-    @TableField(value = "news_id")
-    private Long newsId;
-
-    /**
-     * 
-     */
-    @TableField(value = "last_view_date")
-    private LocalDateTime lastViewDate;
+    @TableField(value = "tag_id")
+    private Long tagId;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

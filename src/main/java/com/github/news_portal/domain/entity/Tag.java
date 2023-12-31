@@ -1,4 +1,4 @@
-package com.github.news_portal.domain;
+package com.github.news_portal.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -9,28 +9,22 @@ import lombok.Data;
 
 /**
  * 
- * @TableName ads_tag
+ * @TableName tag
  */
-@TableName(value ="ads_tag")
+@TableName(value ="tag")
 @Data
-public class AdsTag implements Serializable {
+public class Tag implements Serializable {
     /**
      * 
      */
-    @TableId(value = "ads_tag_id", type = IdType.AUTO)
-    private Long adsTagId;
-
-    /**
-     * 
-     */
-    @TableField(value = "ads_id")
-    private Long adsId;
-
-    /**
-     * 
-     */
-    @TableField(value = "tag_id")
+    @TableId(value = "tag_id", type = IdType.AUTO)
     private Long tagId;
+
+    /**
+     * 
+     */
+    @TableField(value = "tag_name")
+    private String tagName;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

@@ -2,7 +2,7 @@ package com.github.news_portal.web;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.github.news_portal.domain.Comment;
+import com.github.news_portal.domain.entity.Comment;
 import com.github.news_portal.service.CommentService;
 import com.github.news_portal.util.response.ResponseHandler;
 import jakarta.annotation.Resource;

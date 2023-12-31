@@ -1,7 +1,7 @@
 package com.github.news_portal.util;
 
-import com.github.news_portal.domain.News;
-import com.github.news_portal.domain.User;
+import com.github.news_portal.domain.entity.News;
+import com.github.news_portal.domain.entity.User;
 
 public class InputParser {
     public static User parseInput(User user){

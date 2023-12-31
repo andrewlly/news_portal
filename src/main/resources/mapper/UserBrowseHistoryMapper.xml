@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.news_portal.mapper.UserBrowseHistoryMapper">
 
-    <resultMap id="BaseResultMap" type="com.github.news_portal.domain.UserBrowseHistory">
+    <resultMap id="BaseResultMap" type="com.github.news_portal.domain.entity.UserBrowseHistory">
             <id property="userBrowseHistoryId" column="user_browse_history_id" jdbcType="BIGINT"/>
             <result property="userId" column="user_id" jdbcType="BIGINT"/>
             <result property="newsId" column="news_id" jdbcType="BIGINT"/>

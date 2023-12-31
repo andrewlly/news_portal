@@ -1,4 +1,4 @@
-package com.github.news_portal.domain;
+package com.github.news_portal.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -9,28 +9,28 @@ import lombok.Data;
 
 /**
  * 
- * @TableName user_favorite
+ * @TableName sys_role_menu
  */
-@TableName(value ="user_favorite")
+@TableName(value ="sys_role_menu")
 @Data
-public class UserFavorite implements Serializable {
+public class SysRoleMenu implements Serializable {
     /**
      * 
      */
-    @TableId(value = "user_favorite_id", type = IdType.AUTO)
-    private Long userFavoriteId;
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
 
     /**
      * 
      */
-    @TableField(value = "user_id")
-    private Long userId;
+    @TableField(value = "role_id")
+    private Long roleId;
 
     /**
      * 
      */
-    @TableField(value = "news_id")
-    private Long newsId;
+    @TableField(value = "menu_id")
+    private Long menuId;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

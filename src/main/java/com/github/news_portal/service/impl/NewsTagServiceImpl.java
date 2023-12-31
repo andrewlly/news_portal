@@ -1,7 +1,7 @@
 package com.github.news_portal.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.github.news_portal.domain.NewsTag;
+import com.github.news_portal.domain.entity.NewsTag;
 import com.github.news_portal.service.NewsTagService;
 import com.github.news_portal.mapper.NewsTagMapper;
 import org.springframework.stereotype.Service;

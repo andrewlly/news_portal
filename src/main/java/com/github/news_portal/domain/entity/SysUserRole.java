@@ -1,4 +1,4 @@
-package com.github.news_portal.domain;
+package com.github.news_portal.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -9,11 +9,11 @@ import lombok.Data;
 
 /**
  * 
- * @TableName sys_role_menu
+ * @TableName sys_user_role
  */
-@TableName(value ="sys_role_menu")
+@TableName(value ="sys_user_role")
 @Data
-public class SysRoleMenu implements Serializable {
+public class SysUserRole implements Serializable {
     /**
      * 
      */
@@ -23,14 +23,14 @@ public class SysRoleMenu implements Serializable {
     /**
      * 
      */
-    @TableField(value = "role_id")
-    private Long roleId;
+    @TableField(value = "user_id")
+    private Long userId;
 
     /**
      * 
      */
-    @TableField(value = "menu_id")
-    private Long menuId;
+    @TableField(value = "role_id")
+    private Long roleId;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

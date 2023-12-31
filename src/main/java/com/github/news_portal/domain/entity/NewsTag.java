@@ -1,4 +1,4 @@
-package com.github.news_portal.domain;
+package com.github.news_portal.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -9,22 +9,22 @@ import lombok.Data;
 
 /**
  * 
- * @TableName user_tag_preference
+ * @TableName news_tag
  */
-@TableName(value ="user_tag_preference")
+@TableName(value ="news_tag")
 @Data
-public class UserTagPreference implements Serializable {
+public class NewsTag implements Serializable {
     /**
      * 
      */
-    @TableId(value = "user_tag_pref_id", type = IdType.AUTO)
-    private Long userTagPrefId;
+    @TableId(value = "news_tags_id", type = IdType.AUTO)
+    private Long newsTagsId;
 
     /**
      * 
      */
-    @TableField(value = "user_id")
-    private Long userId;
+    @TableField(value = "news_id")
+    private Long newsId;
 
     /**
      * 

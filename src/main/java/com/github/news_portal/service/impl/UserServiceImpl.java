@@ -1,7 +1,7 @@
 package com.github.news_portal.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.github.news_portal.domain.User;
+import com.github.news_portal.domain.entity.User;
 import com.github.news_portal.service.UserService;
 import com.github.news_portal.mapper.UserMapper;
 import com.github.news_portal.util.InputParser;

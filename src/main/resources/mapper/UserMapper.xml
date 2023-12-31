@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.news_portal.mapper.UserMapper">
 
-    <resultMap id="BaseResultMap" type="com.github.news_portal.domain.User">
+    <resultMap id="BaseResultMap" type="com.github.news_portal.domain.entity.User">
             <id property="uid" column="uid" jdbcType="BIGINT"/>
             <result property="userName" column="user_name" jdbcType="VARCHAR"/>
             <result property="phoneNumber" column="phone_number" jdbcType="VARCHAR"/>

@@ -1,6 +1,6 @@
 package com.github.news_portal.service;
 
-import com.github.news_portal.domain.UserFavorite;
+import com.github.news_portal.domain.entity.UserFavorite;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

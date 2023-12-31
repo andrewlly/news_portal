@@ -1,4 +1,4 @@
-package com.github.news_portal.domain;
+package com.github.news_portal.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -9,22 +9,28 @@ import lombok.Data;
 
 /**
  * 
- * @TableName tag
+ * @TableName user_favorite
  */
-@TableName(value ="tag")
+@TableName(value ="user_favorite")
 @Data
-public class Tag implements Serializable {
+public class UserFavorite implements Serializable {
     /**
      * 
      */
-    @TableId(value = "tag_id", type = IdType.AUTO)
-    private Long tagId;
+    @TableId(value = "user_favorite_id", type = IdType.AUTO)
+    private Long userFavoriteId;
 
     /**
      * 
      */
-    @TableField(value = "tag_name")
-    private String tagName;
+    @TableField(value = "user_id")
+    private Long userId;
+
+    /**
+     * 
+     */
+    @TableField(value = "news_id")
+    private Long newsId;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

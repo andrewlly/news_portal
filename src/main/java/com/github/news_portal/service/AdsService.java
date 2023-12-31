@@ -1,9 +1,7 @@
 package com.github.news_portal.service;
 
-import com.github.news_portal.domain.Ads;
+import com.github.news_portal.domain.entity.Ads;
 import com.baomidou.mybatisplus.extension.service.IService;
-
-import java.io.Serializable;
 
 /**
 * @author liuyu

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.news_portal.mapper.AdsMapper">
 
-    <resultMap id="BaseResultMap" type="com.github.news_portal.domain.Ads">
+    <resultMap id="BaseResultMap" type="com.github.news_portal.domain.entity.Ads">
             <id property="adsId" column="ads_id" jdbcType="BIGINT"/>
             <result property="title" column="title" jdbcType="VARCHAR"/>
             <result property="content" column="content" jdbcType="VARCHAR"/>

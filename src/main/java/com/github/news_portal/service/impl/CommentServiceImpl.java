@@ -3,7 +3,7 @@ package com.github.news_portal.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.github.news_portal.domain.Comment;
+import com.github.news_portal.domain.entity.Comment;
 import com.github.news_portal.service.CommentService;
 import com.github.news_portal.mapper.CommentMapper;
 import org.springframework.stereotype.Service;

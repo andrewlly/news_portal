@@ -2,7 +2,7 @@ package com.github.news_portal.web;
 
 
 import com.github.news_portal.domain.ResponseResult;
-import com.github.news_portal.domain.User;
+import com.github.news_portal.domain.entity.User;
 import com.github.news_portal.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

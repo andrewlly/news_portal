@@ -1,7 +1,7 @@
 package com.github.news_portal.service.impl;
 
 import com.github.news_portal.domain.ResponseResult;
-import com.github.news_portal.domain.User;
+import com.github.news_portal.domain.entity.User;
 import com.github.news_portal.security.LoginUser;
 import com.github.news_portal.service.LoginService;
 import org.springframework.security.authentication.AuthenticationManager;

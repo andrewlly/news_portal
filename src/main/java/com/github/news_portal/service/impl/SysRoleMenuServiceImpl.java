@@ -1,7 +1,7 @@
 package com.github.news_portal.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.github.news_portal.domain.SysRoleMenu;
+import com.github.news_portal.domain.entity.SysRoleMenu;
 import com.github.news_portal.service.SysRoleMenuService;
 import com.github.news_portal.mapper.SysRoleMenuMapper;
 import org.springframework.stereotype.Service;

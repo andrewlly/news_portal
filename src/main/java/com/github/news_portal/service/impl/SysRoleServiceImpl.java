@@ -1,9 +1,9 @@
 package com.github.news_portal.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.github.news_portal.domain.SysRole;
+import com.github.news_portal.domain.entity.Role;
 import com.github.news_portal.service.SysRoleService;
-import com.github.news_portal.mapper.SysRoleMapper;
+import com.github.news_portal.mapper.RoleMapper;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 * @createDate 2023-12-31 05:25:14
 */
 @Service
-public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole>
+public class SysRoleServiceImpl extends ServiceImpl<RoleMapper, Role>
     implements SysRoleService{
 
 }

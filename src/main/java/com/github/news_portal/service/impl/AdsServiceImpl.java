@@ -1,7 +1,7 @@
 package com.github.news_portal.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.github.news_portal.domain.Ads;
+import com.github.news_portal.domain.entity.Ads;
 import com.github.news_portal.service.AdsService;
 import com.github.news_portal.mapper.AdsMapper;
 import org.springframework.stereotype.Service;

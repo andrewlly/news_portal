@@ -1,6 +1,6 @@
 package com.github.news_portal.service;
 
-import com.github.news_portal.domain.AdsTag;
+import com.github.news_portal.domain.entity.AdsTag;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

@@ -1,7 +1,6 @@
 package com.github.news_portal.mapper;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.github.news_portal.domain.Comment;
+import com.github.news_portal.domain.entity.Comment;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -12,7 +11,7 @@ import java.util.List;
 * @author liuyu
 * @description 针对表【comment】的数据库操作Mapper
 * @createDate 2023-12-04 23:33:35
-* @Entity com.github.news_portal.domain.Comment
+* @Entity com.github.news_portal.domain.entity.Comment
 */
 public interface CommentMapper extends BaseMapper<Comment> {
 

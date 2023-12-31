@@ -1,6 +1,6 @@
 package com.github.news_portal.service;
 
-import com.github.news_portal.domain.SysUserRole;
+import com.github.news_portal.domain.entity.SysUserRole;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

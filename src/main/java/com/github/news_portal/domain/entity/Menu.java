@@ -1,9 +1,7 @@
-package com.github.news_portal.domain;
+package com.github.news_portal.domain.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.io.Serializable;
 import lombok.Data;
 
@@ -13,7 +11,7 @@ import lombok.Data;
  */
 @TableName(value ="sys_menu")
 @Data
-public class SysMenu implements Serializable {
+public class Menu implements Serializable {
     /**
      * 
      */
@@ -65,7 +63,7 @@ public class SysMenu implements Serializable {
     /**
      * 
      */
-    @TableField(value = "del_flag")
+    @TableLogic
     private Integer delFlag;
 
     @TableField(exist = false)

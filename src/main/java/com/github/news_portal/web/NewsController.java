@@ -2,11 +2,11 @@ package com.github.news_portal.web;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.github.news_portal.domain.Ads;
-import com.github.news_portal.domain.Comment;
-import com.github.news_portal.domain.News;
+import com.github.news_portal.domain.entity.Ads;
+import com.github.news_portal.domain.entity.Comment;
+import com.github.news_portal.domain.entity.News;
 
-import com.github.news_portal.domain.User;
+import com.github.news_portal.domain.entity.User;
 import com.github.news_portal.service.AdsService;
 import com.github.news_portal.service.CommentService;
 import com.github.news_portal.service.NewsService;

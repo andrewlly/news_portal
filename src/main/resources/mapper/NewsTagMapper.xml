@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.github.news_portal.mapper.NewsTagMapper">
 
-    <resultMap id="BaseResultMap" type="com.github.news_portal.domain.NewsTag">
+    <resultMap id="BaseResultMap" type="com.github.news_portal.domain.entity.NewsTag">
             <id property="newsTagsId" column="news_tags_id" jdbcType="BIGINT"/>
             <result property="newsId" column="news_id" jdbcType="BIGINT"/>
             <result property="tagId" column="tag_id" jdbcType="BIGINT"/>

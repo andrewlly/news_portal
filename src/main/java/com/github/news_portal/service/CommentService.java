@@ -1,10 +1,8 @@
 package com.github.news_portal.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.github.news_portal.domain.Comment;
+import com.github.news_portal.domain.entity.Comment;
 import com.baomidou.mybatisplus.extension.service.IService;
-
-import java.util.List;
 
 /**
 * @author liuyu

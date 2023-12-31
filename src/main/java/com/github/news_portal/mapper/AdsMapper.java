@@ -1,6 +1,6 @@
 package com.github.news_portal.mapper;
 
-import com.github.news_portal.domain.Ads;
+import com.github.news_portal.domain.entity.Ads;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -12,7 +12,7 @@ import java.util.List;
 * @author liuyu
 * @description 针对表【ads】的数据库操作Mapper
 * @createDate 2023-12-04 23:33:35
-* @Entity com.github.news_portal.domain.Ads
+* @Entity com.github.news_portal.domain.entity.Ads
 */
 public interface AdsMapper extends BaseMapper<Ads> {
 
