@@ -4,6 +4,7 @@ import com.github.news_portal.domain.ResponseResult;
 import com.github.news_portal.domain.entity.User;
 import com.github.news_portal.security.LoginUser;
 import com.github.news_portal.service.LoginService;
+import com.github.news_portal.util.JwtUtil;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -28,10 +29,10 @@ public class LoginServiceImpl implements LoginService {
         } catch (AuthenticationException e){
             return new ResponseResult<>(403, "Failed login");
         }
-
         LoginUser loginUser = (LoginUser) authenticate.getPrincipal();
+        String jwt = JwtUtil.createJWT(loginUser.getUsername());
         Map<String,String> map = new HashMap<>();
-        map.put("token","jwt");
+        map.put("token",jwt);
         return new ResponseResult<>(200, "loginSuccess", map);
     }
 }

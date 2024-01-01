@@ -5,10 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Data
 @AllArgsConstructor
@@ -19,6 +21,9 @@ public class LoginUser implements UserDetails {
     private Set<String> role;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        if(permission != null && permission.size() >0){
+            return permission.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toSet());
+        }
         return null;
     }
 
