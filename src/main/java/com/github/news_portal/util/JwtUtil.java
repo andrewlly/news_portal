@@ -1,82 +1,66 @@
 package com.github.news_portal.util;
 
+import com.github.news_portal.security.LoginUser;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import java.util.Base64;
-import java.util.Date;
-import java.util.UUID;
+import java.util.*;
 
-@Component
 public class JwtUtil {
     //valid for one hour
     public static final Long JWT_TTL = 60 * 60 *1000L;
     public static final String JWT_KEY = "newsPortal";
 
-    public static String getUUID(){
-        String token = UUID.randomUUID().toString().replaceAll("-", "");
-        return token;
+
+    public static String createJWT(Map<String,Object> claim) {
+        JwtBuilder builder = getJwtBuilder(claim, null);
+        return builder.compact();
     }
 
-
-    public static String createJWT(String subject) {
-        JwtBuilder builder = getJwtBuilder(subject, null, getUUID());
+    public static String createJWT(LoginUser loginUser){
+        Map<String,Object> claim = new HashMap<>();
+        claim.put("uuid",loginUser.getUser().getUid());
+        claim.put("username",loginUser.getUser().getUserName());
+        claim.put("perms",loginUser.getPermission());
+        claim.put("roles",loginUser.getRole());
+        JwtBuilder builder = getJwtBuilder(claim,null);
         return builder.compact();
     }
 
 
-    public static String createJWT(String subject, Long ttlMillis) {
-        JwtBuilder builder = getJwtBuilder(subject, ttlMillis, getUUID());
-        return builder.compact();
-    }
 
-    private static JwtBuilder getJwtBuilder(String subject, Long ttlMillis, String uuid) {
+
+    private static JwtBuilder getJwtBuilder(Map<String,Object> claim,Long ttlMillis) {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
         SecretKey secretKey = generalKey();
         long nowMillis = System.currentTimeMillis();
         Date now = new Date(nowMillis);
-        if(ttlMillis==null){
-            ttlMillis=JwtUtil.JWT_TTL;
+        if (ttlMillis == null) {
+            ttlMillis = JwtUtil.JWT_TTL;
         }
         long expMillis = nowMillis + ttlMillis;
         Date expDate = new Date(expMillis);
         return Jwts.builder()
-                .setId(uuid)
-                .setSubject(subject)
-                .setIssuer("server")
+                .setClaims(claim)
+                .setIssuer("newsPortalServer")
                 .setIssuedAt(now)
                 .signWith(signatureAlgorithm, secretKey)
                 .setExpiration(expDate);
     }
 
 
-    public static String createJWT(String id, String subject, Long ttlMillis) {
-        JwtBuilder builder = getJwtBuilder(subject, ttlMillis, id);
-        return builder.compact();
-    }
-
-    public static void main(String[] args) throws Exception {
-        String token = "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJjYWM2ZDVhZi1mNjVlLTQ0MDAtYjcxM" +
-                "i0zYWEwOGIyOTIwYjQiLCJzdWIiOiJzZyIsImlzcyI6InNnIiwiaWF0IjoxNjM4" +
-                "MTA2NzEyLCJleHAiOjE2MzgxMTAzMTJ9.JVsSbkP94wuczb4QryQbAke3ysBDIL5ou8fWsbt_ebg";
-        Claims claims = parseJWT(token);
-        System.out.println(claims);
-    }
-
 
     public static SecretKey generalKey() {
         byte[] encodedKey = Base64.getDecoder().decode(JwtUtil.JWT_KEY);
-        SecretKey key = new SecretKeySpec(encodedKey, 0, encodedKey.length, "AES");
-        return key;
+        return new SecretKeySpec(encodedKey, 0, encodedKey.length, "AES");
     }
 
 
-    public static Claims parseJWT(String jwt) throws Exception {
+    public static Claims parseJWT(String jwt) {
         SecretKey secretKey = generalKey();
         return Jwts.parser()
                 .setSigningKey(secretKey)

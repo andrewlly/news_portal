@@ -1,4 +1,4 @@
-package com.github.news_portal.service.impl;
+package com.github.news_portal.security;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.github.news_portal.domain.entity.Menu;
@@ -7,7 +7,6 @@ import com.github.news_portal.domain.entity.User;
 import com.github.news_portal.mapper.MenuMapper;
 import com.github.news_portal.mapper.RoleMapper;
 import com.github.news_portal.mapper.UserMapper;
-import com.github.news_portal.security.LoginUser;
 import jakarta.annotation.Resource;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

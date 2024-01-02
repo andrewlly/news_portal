@@ -30,7 +30,7 @@ public class LoginServiceImpl implements LoginService {
             return new ResponseResult<>(403, "Failed login");
         }
         LoginUser loginUser = (LoginUser) authenticate.getPrincipal();
-        String jwt = JwtUtil.createJWT(loginUser.getUsername());
+        String jwt = JwtUtil.createJWT(loginUser);
         Map<String,String> map = new HashMap<>();
         map.put("token",jwt);
         return new ResponseResult<>(200, "loginSuccess", map);
