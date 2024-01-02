@@ -1,4 +1,15 @@
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: 9e549de167fb0f65a9de
+            clientSecret: 699720000e5dc8a4338f242844a6f92e66b1b438
+            redirect-uri: "{baseUrl}/auth/oauth2/github/code/{registrationId}"
+            scope:
+              - user:email
+              - read:user
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/news_portal?characterEncoding=utf-8&userSSL=false
