@@ -59,7 +59,6 @@ public class NewsController {
         }
     }
 
-    @PreAuthorize("hasAuthority('home:view')")
     @GetMapping("/select/{newsId}")
     public ResponseEntity<Map<String, Object>> getNewsById(@PathVariable Long newsId) {
         return BaseController.getById(newsId, newsService::getById);
@@ -89,17 +88,13 @@ public class NewsController {
     @PreAuthorize("hasAuthority('news:create')")
     @PostMapping()
     public ResponseEntity<Map<String, Object>> createNews(@RequestBody News news) {
-//        System.out.println(1);
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        System.out.println(authentication);
-//        Long userId = null;
-//        if (authentication != null && authentication.getPrincipal() instanceof LoginUser loginUser) {
-//             userId = loginUser.getUser().getUid();
-//            System.out.println(loginUser);
-//        }
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Long userId = null;
+        if (authentication != null && authentication.getPrincipal() instanceof LoginUser loginUser) {
+             userId = loginUser.getUser().getUid();
+        }
         try {
-//            System.out.println(userId);
-            newsService.save(news);
+            newsService.save(news,userId);
         } catch (Exception e) {
             return ResponseHandler.handleErrResponse(e);
         }

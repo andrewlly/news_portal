@@ -23,11 +23,11 @@ public class JwtUtil {
 
     public static String createJWT(LoginUser loginUser){
         Map<String,Object> claim = new HashMap<>();
-        claim.put("uuid",loginUser.getUser().getUid());
+        claim.put("uid",loginUser.getUser().getUid());
         claim.put("username",loginUser.getUser().getUserName());
         claim.put("perms",loginUser.getPermission());
         claim.put("email",loginUser.getUser().getEmail());
-        claim.put("avatar",loginUser.getUser().getEmail());
+        claim.put("avatar",loginUser.getUser().getAvatarUrl());
         JwtBuilder builder = getJwtBuilder(claim,null);
         return builder.compact();
     }
