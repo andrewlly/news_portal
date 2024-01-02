@@ -26,7 +26,8 @@ public class JwtUtil {
         claim.put("uuid",loginUser.getUser().getUid());
         claim.put("username",loginUser.getUser().getUserName());
         claim.put("perms",loginUser.getPermission());
-        claim.put("roles",loginUser.getRole());
+        claim.put("email",loginUser.getUser().getEmail());
+        claim.put("avatar",loginUser.getUser().getEmail());
         JwtBuilder builder = getJwtBuilder(claim,null);
         return builder.compact();
     }

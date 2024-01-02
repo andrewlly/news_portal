@@ -7,6 +7,7 @@ import com.github.news_portal.domain.entity.Comment;
 import com.github.news_portal.domain.entity.News;
 
 import com.github.news_portal.domain.entity.User;
+import com.github.news_portal.security.LoginUser;
 import com.github.news_portal.service.AdsService;
 import com.github.news_portal.service.CommentService;
 import com.github.news_portal.service.NewsService;
@@ -15,6 +16,9 @@ import jakarta.annotation.Resource;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -35,6 +39,7 @@ public class NewsController {
     CommentService commentService;
 
 
+    @PreAuthorize("hasAuthority('home:view')")
     @GetMapping()
     public ResponseEntity<Map<String, Object>> getNews(
             @RequestParam(defaultValue = "0") int page,
@@ -54,11 +59,13 @@ public class NewsController {
         }
     }
 
+    @PreAuthorize("hasAuthority('home:view')")
     @GetMapping("/select/{newsId}")
     public ResponseEntity<Map<String, Object>> getNewsById(@PathVariable Long newsId) {
         return BaseController.getById(newsId, newsService::getById);
     }
 
+    @PreAuthorize("hasAuthority('home:view')")
     @GetMapping("/{newsId}")
     public ResponseEntity<Map<String, Object>> readNewsById(@PathVariable Long newsId, @RequestBody User user) {
         try {
@@ -79,16 +86,27 @@ public class NewsController {
         }
     }
 
+    @PreAuthorize("hasAuthority('news:create')")
     @PostMapping()
-    public ResponseEntity<Map<String, Object>> createNews(@RequestBody News news, @RequestBody User user) {
+    public ResponseEntity<Map<String, Object>> createNews(@RequestBody News news) {
+//        System.out.println(1);
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        System.out.println(authentication);
+//        Long userId = null;
+//        if (authentication != null && authentication.getPrincipal() instanceof LoginUser loginUser) {
+//             userId = loginUser.getUser().getUid();
+//            System.out.println(loginUser);
+//        }
         try {
-            newsService.save(news,user);
+//            System.out.println(userId);
+            newsService.save(news);
         } catch (Exception e) {
             return ResponseHandler.handleErrResponse(e);
         }
         return ResponseEntity.noContent().build();
     }
 
+    @PreAuthorize("hasAuthority('news:update')")
     @PostMapping("/{newsID}")
     public ResponseEntity<Map<String, Object>> updateNews(@PathVariable Long newsID, @RequestBody News news) {
         try{
@@ -99,6 +117,7 @@ public class NewsController {
         return ResponseEntity.noContent().build();
     }
 
+    @PreAuthorize("hasAuthority('news:delete')")
     @DeleteMapping("/{newsID}")
     public ResponseEntity<Map<String, Object>> deleteNews(@PathVariable Long newsID) {
         boolean isDeleted = newsService.removeById(newsID);

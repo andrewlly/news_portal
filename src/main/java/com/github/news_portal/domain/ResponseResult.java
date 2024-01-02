@@ -2,6 +2,9 @@ package com.github.news_portal.domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseResult<T> {
@@ -49,5 +52,13 @@ public class ResponseResult<T> {
         this.code = code;
         this.msg = msg;
         this.data = data;
+    }
+
+    public Map<String,Object> createMap(){
+        Map<String,Object> map = new HashMap<>();
+        if(code != null) map.put("code",code);
+        if (msg != null) map.put("msg",msg);
+        if (data!= null) map.put("data",data);
+        return map;
     }
 }

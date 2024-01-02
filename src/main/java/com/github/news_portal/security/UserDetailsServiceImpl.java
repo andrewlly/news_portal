@@ -12,9 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -42,7 +40,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             roleIds.add(role.getId());
         }
         Set<Menu> menus = menuMapper.selectAllByRoleId(roleIds);
-        Set<String> perms= new HashSet<>();
+        List<String> perms= new ArrayList<>();
         for (Menu m: menus) {
             perms.add(m.getPerms());
         }

@@ -8,6 +8,7 @@ import jakarta.annotation.Resource;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -20,6 +21,7 @@ public class AdsController {
     @Resource
     AdsService adsService;
 
+    @PreAuthorize("hasAuthority('home:view')")
     @GetMapping()
     public ResponseEntity<Map<String, Object>> getAllAds(@RequestParam(defaultValue = "0") int page) {
         try {
@@ -34,11 +36,13 @@ public class AdsController {
         }
     }
 
+    @PreAuthorize("hasAuthority('home:view')")
     @GetMapping("/{adsId}")
     public ResponseEntity<Map<String, Object>> getAdsById(@PathVariable Long adsId) {
         return BaseController.getById(adsId, adsService::getById);
     }
 
+    @PreAuthorize("hasAuthority('ads:create')")
     @PostMapping()
     public ResponseEntity<Map<String, Object>> createAds(@RequestBody Ads ads) {
         try {
@@ -49,6 +53,7 @@ public class AdsController {
         }
     }
 
+    @PreAuthorize("hasAuthority('ads:update')")
     @PutMapping()
     public ResponseEntity<Map<String, Object>> updateAds(@RequestBody Ads ads) {
         try {
@@ -59,6 +64,7 @@ public class AdsController {
         }
     }
 
+    @PreAuthorize("hasAuthority('ads:delete')")
     @DeleteMapping("/{adsId}")
     public ResponseEntity<Map<String, Object>> deleteAds(@PathVariable Long adsId) {
         boolean isDeleted = adsService.removeById(adsId);

@@ -1,6 +1,7 @@
 package com.github.news_portal.web;
 
 
+import com.github.news_portal.domain.ResponseResult;
 import com.github.news_portal.domain.entity.User;
 import javax.annotation.Resource;
 
@@ -13,7 +14,6 @@ import java.util.Map;
 
 
 @RestController
-@RequestMapping("/user")
 public class UserController {
 
 
@@ -22,7 +22,7 @@ public class UserController {
 
 
 
-    @PostMapping ("/login")
+    @PostMapping ("/auth/create")
     @ResponseBody
     private ResponseEntity<Map<String, Object>> saveUser(@RequestBody User user) {
         try {
@@ -30,12 +30,12 @@ public class UserController {
         } catch (Exception e) {
             return ResponseHandler.handleErrResponse(e);
         }
-
+        //todo:add auth
         return ResponseEntity.noContent().build();
     }
 
 
-    @PostMapping ("/{uid}")
+    @PostMapping ("/user/{uid}")
     @ResponseBody
     private ResponseEntity<Map<String, Object>> updateUserByID(@PathVariable Long uid, @RequestBody User user) {
         try {

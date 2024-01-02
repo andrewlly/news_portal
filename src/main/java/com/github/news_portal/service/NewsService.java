@@ -18,5 +18,7 @@ public interface NewsService extends IService<News> {
 
     boolean save(News news, User user);
 
+    boolean save(News news,Long userId);
+
     Page<News> pageQuery(Page<News> pageRequest, News newsQueryInput);
 }

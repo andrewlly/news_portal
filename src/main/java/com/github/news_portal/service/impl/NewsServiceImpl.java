@@ -34,6 +34,13 @@ public class NewsServiceImpl extends ServiceImpl<NewsMapper, News>
         return super.save(validNews);
     }
 
+
+    public boolean save(News news, Long userid) {
+        News validNews = InputParser.parseInput(news);
+        validNews.setAuthor(userid);
+        return super.save(validNews);
+    }
+
     @Override
     public Page<News> pageQuery(Page<News> pageRequest, News news) {
         LambdaQueryWrapper<News> wrapper = new LambdaQueryWrapper<>();
