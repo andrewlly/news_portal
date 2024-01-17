@@ -49,7 +49,7 @@ public class SecurityConfig {
                     auth.requestMatchers("/auth/**").permitAll().anyRequest().authenticated();
                 })
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-                .oauth2Login(Customizer.withDefaults())
+//                .oauth2Login(Customizer.withDefaults())
 //                .formLogin(conf -> {
 //                    conf.loginPage("/login");
 //                })
