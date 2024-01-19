@@ -17,6 +17,12 @@ spring:
     password: 85801754yY!
     type: com.zaxxer.hikari.HikariDataSource
 
+management:
+  endpoint:
+    health:
+      show-details: always
+
+
 
 mybatis-plus:
   configuration:
